@@ -1,6 +1,7 @@
 package com.airwallex.calculator;
 
 import com.airwallex.exception.NumTransException;
+import com.airwallex.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
