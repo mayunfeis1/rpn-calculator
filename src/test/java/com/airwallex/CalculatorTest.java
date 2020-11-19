@@ -3,6 +3,7 @@ package com.airwallex;
 import com.airwallex.Interface.KeyBoard;
 import com.airwallex.Interface.impl.KeyBoardImpl;
 import com.airwallex.exception.NumTransException;
+import com.airwallex.service.CalculatorService;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
