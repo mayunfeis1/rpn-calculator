@@ -1,7 +1,6 @@
 package com.airwallex.service;
 
 import com.airwallex.exception.NumTransException;
-import com.airwallex.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,11 +29,11 @@ import java.util.Stack;
  */
 
 /**
- * 逆波兰计算类
- * 1、判断数字，入栈，记录日志
- * 2、检验输入正确性
- * 3、执行计算逻辑
- * 4、打印日志
+ * RPN Calculator class
+ *1. Judge the number, stack and record the log
+ *2. Check the correctness of input
+ *3. Execute the calculation logic
+ *4. Print log
  */
 public class CalculatorService {
 

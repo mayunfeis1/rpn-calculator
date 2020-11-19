@@ -1,7 +1,8 @@
 package com.airwallex;
 
-import com.airwallex.service.CalculatorService;
 import com.airwallex.exception.NumTransException;
+import com.airwallex.service.CalculatorService;
+
 import java.util.Scanner;
 
 /***
@@ -26,8 +27,7 @@ import java.util.Scanner;
  */
 
 /**
- * 逆波兰计算器入口函数
- * 测试用例
+ *  RPN Calculator entry function
  */
 public class ServiceMain {
 

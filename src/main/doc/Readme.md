@@ -1,60 +1,63 @@
-# PRN计算器实现
+# PRN Calculator Implementation
 
-### 1.需求概述
+### 1.Requirements overview
 
 ```jade
-•计算器等待用户输入，并期望接收包含空格分隔的数字和运算符。
-•数字被压入堆栈，运算符对堆栈上的数字进行操作。
-•可用运算符有+、-、*、/、sqrt、undo、clear。
-•遇到运算符将参数从堆栈中弹出，并将结果推回到堆栈中。
-•clear运算符从堆栈中移除所有。
-•undo运算符撤消以前的操作。udo undo将撤消前两个操作。
-•sqrt对堆栈顶部的项执行平方根运算。
-•“+”、“-”、“*”、“/”运算符分别对堆栈数字进行操作。
-•处理输入字符串后，计算器以空格分隔的列表形式显示堆栈的当前内容。
-•数字应存储在堆栈上，精度至少为15位小数，但显示为10位小数（如果它不会导致精度损失）。
-•所有数字应采用纯十进制字符串格式（即无工程格式）。
-•如果运算符在堆栈上找不到足够数量的参数，则显示警告：运算符<运算符>（位置：<pos>）：参数不足
-•显示警告后，字符串的所有进一步处理都将终止，并显示堆栈的当前状态
+• The calculator waits for user input and expects to receive strings containing whitespace separated lists of numbers and operators.
+• Numbers are pushed on to the stack. Operators operate on numbers that are on the stack.
+• Available operators are +, -, *, /, sqrt, undo, clear.
+• Operators pop their parameters off the stack, and push their results back onto the stack.
+• The ‘clear’ operator removes all items from the stack.
+• The ‘undo’ operator undoes the previous operation. “undo undo” will undo the previo us two operations.
+• sqrt performs a square root on the top item from the stack.
+• The ‘+’, ‘-’, ‘*’, ‘/’ operators perform addition, subtraction, multiplication and division respectively on the top two items from
+the stack.
+• After processing an input string, the calculator displays the current contents of the stack as a space-separated list.
+• Numbers should be stored on the stack to at least 15 decimal places of precision, but displayed to 10 decimal places (or less if
+it causes no loss of precision).
+• All numbers should be formatted as plain decimal strings (ie. no engineering formatting).
+• If an operator cannot find a sufficient number of parameters on the stack, a warning is displayed:
+operator <operator> (position: <pos>): insufficient parameters
+• After displaying the warning, all further processing of the string terminates and the current state of the stack is displayed
 ```
 
-### 2.工程结构描述
+### 2.Project structure description
 
 ```java
-                
-├── doc                         // 文档
-  ├── Readme.md                   //工程说明文档
-├── ServiceMain                 //主函数
-├── utils                       //工具类所在包
-  ├──CommonUtils                   //工程运行需要的工具类
-├── service                     // 执行逻辑类所在包
-  ├──CalculatorService             //主要执行任务流程类
-  ├──OperatorCheck                 //校验信息类
-  ├──OperatorSelector              //算子选择器类
-├── excption                   //异常信息包
-  ├──NumTransException             //运行过程中封装异常信息类
-├── calculator                 //执行运算逻辑的包
-  ├──CalculatorEnum               //执行具体计算的枚举类
-  ├──OperatorContants             //定义可执行的运算法常量类
-
+├──main              
+    ├── doc                         // document
+      ├── Readme.md                   //project document
+    ├── ServiceMain                 //main class
+    ├── utils                       //util package
+      ├──CommonUtils                   //Tools required for project
+    ├── service                     // Execute the logic package
+      ├──CalculatorService             //Main execution task process class
+      ├──OperatorCheck                 //check infomation
+      ├──OperatorSelector              //Operator selector class
+    ├── excption                   //exception package
+      ├──NumTransException             //exception information class during operation class
+    ├── calculator                 //A package that performs operational logic
+      ├──CalculatorEnum               //Enumeration classes that perform specific calculations
+      ├──OperatorContants             //Defines an executable arithmetic constant class
+├──test
+    ├──CalculatorTest           //test class case   
 ```
 
-### 3.运行流程描述
+### 3.Description of operation process
 
 ```java
-1.com.airwallex.ServiceMain：函数入口，接收用户输入的表达式，数字和运算法都以空格分割。
-2.com.airwallex.service.CalculatorService：用户输入表达式，调用CalculatorService类的doCalculator方法：
-  1).将输入的表达式空格分割，数据进入数字堆
-  2).遇到运算符号 调用OperatorCheck类check方法,对数计算操作进行检查是否合法,不合法打印警告信息。
-  3).如果合法调用 OperatorSelector类selector方法，根据运算法类型，调用不同逻辑运算。
-3.com.airwallex.calculator.CalculatorEnum:定义不同运算法的执行逻辑：
-  1).OperatorSelector类selector方法 ,判断运算符类型，选择不同运算逻辑，并记录操作日志信息。
+1.com.airwallex.ServiceMain：Function entry, receive user input expression, number and algorithm are separated by space
+2.com.airwallex.service.CalculatorService：User input expression，call CalculatorService.doCalculator function：
+  1).The space of the input expression is divided, and the data is put into the number heap
+  2).Operation symbol encountered call OperatorCheck.check function,check whether the logarithm calculation operation is legal, and print warning information if it is illegal。
+  3).If it is called legally OperatorSelector.selector function，Different logic operations are called according to the operation type。
+3.com.airwallex.calculator.CalculatorEnum:Define the execution logic of different algorithms：
+  1).OperatorSelector.selector function ,Determine the operator type, select different operation logic, and record the operation log information。
 ```
 
-### 4.测试用例
+### 4.Test case
 
 ```java
-温馨提示：如果连续测试多个测试案例，请每次运行完一个测试案例后执行一下clear，再执行下一个测试案例。
 
 1)输入:5 2
   输出:stack:5 2

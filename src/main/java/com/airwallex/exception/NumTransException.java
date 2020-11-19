@@ -22,7 +22,7 @@ package com.airwallex.exception;
  */
 
 /**
- * 异常类
+ * exception class
  */
 public class NumTransException  extends Exception{
 

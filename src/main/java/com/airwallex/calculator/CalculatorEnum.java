@@ -1,7 +1,6 @@
 package com.airwallex.calculator;
 
 import com.airwallex.exception.NumTransException;
-import com.airwallex.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,21 +28,21 @@ import java.util.Stack;
  */
 
 /**
- * 算子的计算类
+ * Computational classes of operators
  * ADD：+
  * SUB：-
  * MUL：*
  * DIV： /
- * SQRT：开方
- * CLEAR：情况
- * UNDO ：回退
+ * SQRT：sqrt
+ * CLEAR：clear
+ * UNDO ：undo
  */
 public enum CalculatorEnum {
 
     ADD{
         @Override
        public void exec(Stack<Double> numbers,Stack<List<Double>> logList){
-            // 按照从左向右计算，则先弹出栈顶的数据是：被除数。
+            // from left to right
             double num2 = numbers.pop();
             double num1 = numbers.pop();
             numbers.push(num1 + num2);
@@ -53,7 +52,7 @@ public enum CalculatorEnum {
     SUB{
         @Override
         public void exec(Stack<Double> numbers,Stack<List<Double>> logList){
-            // 按照从左向右计算，则先弹出栈顶的数据是：被除数。
+            //  from left to right
             double num2 = numbers.pop();
             double num1 = numbers.pop();
             numbers.push(num1 - num2);
@@ -63,7 +62,7 @@ public enum CalculatorEnum {
     MUL{
         @Override
         public void exec(Stack<Double> numbers,Stack<List<Double>> logList){
-            // 按照从左向右计算，则先弹出栈顶的数据是：被除数。
+            //  from left to right
             double num2 = numbers.pop();
             double num1 = numbers.pop();
             numbers.push(num1 * num2);
@@ -73,7 +72,7 @@ public enum CalculatorEnum {
     DIV{
         @Override
         public void exec(Stack<Double> numbers,Stack<List<Double>> logList) throws NumTransException {
-            // 按照从左向右计算，则先弹出栈顶的数据是：被除数。
+            //  from left to right
             double num2 = numbers.pop();
             double num1 = numbers.pop();
             if (num2 == 0) {
@@ -98,9 +97,8 @@ public enum CalculatorEnum {
     CLEAR{
         @Override
         public void exec(Stack<Double> numbers,Stack<List<Double>> logList){
-            // 将栈内数据清空
             numbers.clear();
-            // 清理动作在日志栈里存入null，用于回退时区分
+            // Clear the data in the stack null
             List<Double> list = new ArrayList<>();
             list.add(null);
             logList.push(list);
@@ -109,12 +107,12 @@ public enum CalculatorEnum {
     UNDO{
         @Override
         public void exec(Stack<Double> numbers,Stack<List<Double>> logList){
-            // 将栈内数据清空
+            // clear the data in the stack
             numbers.clear();
-            // 将上一步的操作数据存入操作数栈中
+            // Store the operation data of the previous step into the operation data stack
             if (!logList.isEmpty()) {
-                logList.pop();// 弹出计算结果的日志
-                List<Double> numbersLog = logList.peek();// 获取计算前的栈数据
+                logList.pop();// Store the operation data of the previous step into the operands stack and pop up the log of calculation results
+                List<Double> numbersLog = logList.peek();
                 for (Double d : numbersLog) {
                     if (d != null) {
                         numbers.push(d);

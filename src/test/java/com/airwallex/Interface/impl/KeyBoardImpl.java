@@ -1,4 +1,8 @@
-package com.airwallex.calculator;
+package com.airwallex.Interface.impl;
+
+import com.airwallex.Interface.KeyBoard;
+
+import java.util.Scanner;
 
 /***
  *                    .::::.
@@ -22,15 +26,13 @@ package com.airwallex.calculator;
  */
 
 /**
- * Operator constant class
+ * command input implement
  */
-public interface OperatorContants {
-     static final String ADD = "+";
-     static final String SUB = "-";
-     static final String MUL = "*";
-     static final String DIV = "/";
-     static final String SQRT = "sqrt";
-     static final String CLEAR = "clear";
-     static final String UNDO = "undo";
-
+public class KeyBoardImpl implements KeyBoard {
+    @Override
+    public String input() {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        return input;
+    }
 }

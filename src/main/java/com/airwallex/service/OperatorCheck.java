@@ -26,7 +26,7 @@ import java.util.Stack;
  */
 
 /**
- * 操作符检查
+ * Operator check
  */
 public class OperatorCheck {
 

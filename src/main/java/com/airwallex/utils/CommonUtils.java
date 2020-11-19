@@ -31,7 +31,7 @@ public class CommonUtils {
 
 
     /**
-     * 判断是否是数字
+     * judge whether it is a number
      *
      * @param number
      * @return
@@ -48,7 +48,8 @@ public class CommonUtils {
 
 
     /**
-     * 将操作数栈的里数据 记录的日志栈中
+     *
+     *  record the data in the stack of operands into the log stack
      * @param numbers
      * @param logList
      */
@@ -61,7 +62,7 @@ public class CommonUtils {
     }
 
     /**
-     * 打印栈数据
+     * print stack data
      * @param numbers
      */
     public static void printStack(Stack<Double> numbers, List<String> subList) {
@@ -86,7 +87,7 @@ public class CommonUtils {
     }
 
     /**
-     * 精度至少为15位小数，但是显示10位小数
+     * the precision is at least 15 decimal places, but 10 decimal places are displayed
      * @param number
      * @return
      */

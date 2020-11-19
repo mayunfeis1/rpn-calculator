@@ -29,7 +29,7 @@ import java.util.Stack;
  */
 
 /**
- * 运算选择器类
+ * Operation selector class
  */
 public class OperatorSelector {
 
