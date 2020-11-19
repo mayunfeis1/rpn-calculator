@@ -59,44 +59,44 @@ operator <operator> (position: <pos>): insufficient parameters
 
 ```java
 
-1)输入:5 2
-  输出:stack:5 2
-2)输入:2 sqrt
-  输出:stack:1.4142135623 
-  继续输入：clear 9 sqrt
-  输出：stack： 3   
-3）输入：5 2 -
-   输出：stack： 3  
-   继续输入：3 -
-   输出 stack： 0 
-   继续输入：clear
-   输出：stack：
-4).输入：5 4 3 2
-   输出：stack： 5 4 3 2 
-   继续输入：undo undo *
-   输出：stack： 20
-   继续输入：5 *
-   输出：stack： 100 
-   继续输入：undo 
-   输出：stack： 20 5
-5).输入：7 12 2 /
-   输出：stack： 7 6
-   继续输入： *
-   输出：stack： 42 
-   继续输入： 4 /
-   输出：stack： 10.5 
-6).输入：1 2 3 4 5 *
-   输出：stack： 1 2 3 4 5
-   继续输入： *
-   输出：stack： 1 2 3 20 
-   继续输入： clear 3 4 -
-   输出：stack： -1
- 7）输入：1 2 3 4 5
-    输出：stack： 1 2 3 4 5
-    继续输入：* * * *
-    输出：stack： 120
-8).输入：1 2 3 * 5 + * * 6 5
-   输出：
+1)input:5 2
+  output:stack:5 2
+2)input:2 sqrt
+  output:stack:1.4142135623 
+  input again：clear 9 sqrt
+  output：stack： 3   
+3）input：5 2 -
+   output：stack： 3  
+   input again：3 -
+   output stack： 0 
+   input again：clear
+   output：stack：
+4).input：5 4 3 2
+   output：stack： 5 4 3 2 
+   input again：undo undo *
+   output：stack： 20
+   input again：5 *
+   output：stack： 100 
+   input again：undo 
+   output：stack： 20 5
+5).input：7 12 2 /
+   output：stack： 7 6
+   input again： *
+   output：stack： 42 
+   input again： 4 /
+   output：stack： 10.5 
+6).input：1 2 3 4 5 *
+   output：stack： 1 2 3 4 5
+   input again： *
+   output：stack： 1 2 3 20 
+   input again： clear 3 4 -
+   output：stack： -1
+ 7）input：1 2 3 4 5
+    output：stack： 1 2 3 4 5
+    input again：* * * *
+    output：stack： 120
+8).input：1 2 3 * 5 + * * 6 5
+   output：
     operator * (position: 15): insufficient parameters 
     stack： 11 
    (6 and 5  were not pushed on to the stack due to the previous error)
