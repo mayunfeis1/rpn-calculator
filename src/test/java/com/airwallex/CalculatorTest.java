@@ -41,21 +41,12 @@ public class CalculatorTest {
     CalculatorService calculatorService = new CalculatorService();
 
 
+
     @Test
     public void Test1() throws NumTransException {
-        String data="5 2";
-        String input;
-        InputStream stdin = System.in;
-        try{
-            System.out.println("Please enter an expression：");
-            System.setIn(new ByteArrayInputStream(data.getBytes()));
-            input = keyBoard.input();
-            System.out.println("Input expression： " + input);
-            calculatorService.doCalculator(input);
-
-        }finally {
-            System.setIn(stdin);
-        }
+        List<String> list = new ArrayList<>();
+        list.add("5 2");
+        process(list);
     }
 
     @Test
@@ -63,19 +54,7 @@ public class CalculatorTest {
         List<String> list = new ArrayList<>();
         list.add("2 sqrt");
         list.add("clear 9 sqrt");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.out.println("Please enter an expression：");
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
@@ -84,19 +63,7 @@ public class CalculatorTest {
         list.add("5 2 -");
         list.add("3 -");
         list.add("clear");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.out.println("Please enter an expression：");
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
@@ -106,18 +73,7 @@ public class CalculatorTest {
         list.add("undo undo *");
         list.add("5 *");
         list.add("undo");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
@@ -126,18 +82,7 @@ public class CalculatorTest {
         list.add("7 12 2 /");
         list.add("*");
         list.add("4 /");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
@@ -146,18 +91,7 @@ public class CalculatorTest {
         list.add("1 2 3 4 5");
         list.add("*");
         list.add("clear 3 4 -");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
@@ -165,24 +99,17 @@ public class CalculatorTest {
         List<String> list = new ArrayList<>();
         list.add("1 2 3 4 5");
         list.add("* * * *");
-        String input;
-        InputStream stdin = System.in;
-        try{
-            for(int i=0;i<list.size();i++){
-                System.setIn(new ByteArrayInputStream(list.get(i).getBytes()));
-                input = keyBoard.input();
-                System.out.println("Input expression： " + input);
-                calculatorService.doCalculator(input);
-            }
-        }finally {
-            System.setIn(stdin);
-        }
+        process(list);
     }
 
     @Test
     public void Test8() throws NumTransException {
         List<String> list = new ArrayList<>();
         list.add("1 2 3 * 5 + * * 6 5");
+        process(list);
+    }
+
+    private void process(List<String> list) throws NumTransException {
         String input;
         InputStream stdin = System.in;
         try{
